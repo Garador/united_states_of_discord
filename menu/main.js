@@ -32,23 +32,29 @@ function setMenuItem(){
 	let applyPageName = "apply.html";
 	
 	let pathName = window.location.pathname;
-	if(!pathName.split("/")[2]
-	|| pathName.split("/")[2].indexOf(indexPageName)==0){
+	let fixName = pathName.split("/")[pathName.split("/").length-1];
+	console.log({
+		pathName, 
+		fixName
+	});
+
+	if(!fixName
+	|| fixName.indexOf(indexPageName)==0){
 		if(window.location.href.toLowerCase().indexOf("mission")>-1){
-			$("#nav1Dropdown > ul > li:nth-child(4)").addClass("active");
+			$("#missionNavItem").addClass("active");
 		}
 	}else if(
-		pathName.split("/")[2].indexOf(joinPageName)==0
+		fixName.indexOf(joinPageName)==0
 	){
-		$("#nav1Dropdown > ul > li:nth-child(1)").addClass("active");
+		$("#joinNavItem").addClass("active");
 	}else if(
-		pathName.split("/")[2].indexOf(verifyPageName)==0
+		fixName.indexOf(verifyPageName)==0
 	){
-		$("#nav1Dropdown > ul > li:nth-child(2)").addClass("active");
+		$("#verifyNavItem").addClass("active");
 	}else if(
-		pathName.split("/")[2].indexOf(applyPageName)==0
+		fixName.indexOf(applyPageName)==0
 	){
-		$("#nav1Dropdown > ul > li:nth-child(3)").addClass("active");
+		$("#applyNavItem").addClass("active");
 	}
 }
 
@@ -95,12 +101,12 @@ function changeBackground(){
 
 $(window).ready(()=>{
 	setNavbarTransparency();
-	setMenuItem();
 
 	setTimeout(()=>{
 		changeBackground();
 	}, changeBackgroundInterval/2)
 });
+setMenuItem();
 
 
 function checkPswd() {
