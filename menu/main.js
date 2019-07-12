@@ -30,19 +30,14 @@ function setMenuItem(){
 	let joinPageName = "join.html";
 	let verifyPageName = "verify.html";
 	let applyPageName = "apply.html";
+	let missionPageName = "mission.html";
 	
 	let pathName = window.location.pathname;
 	let fixName = pathName.split("/")[pathName.split("/").length-1];
-	console.log({
-		pathName, 
-		fixName
-	});
 
 	if(!fixName
-	|| fixName.indexOf(indexPageName)==0){
-		if(window.location.href.toLowerCase().indexOf("mission")>-1){
-			$("#missionNavItem").addClass("active");
-		}
+	|| fixName.indexOf(missionPageName)==0){
+		$("#missionNavItem").addClass("active");
 	}else if(
 		fixName.indexOf(joinPageName)==0
 	){
