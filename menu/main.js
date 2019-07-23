@@ -35,8 +35,7 @@ function setMenuItem(){
 	let pathName = window.location.pathname;
 	let fixName = pathName.split("/")[pathName.split("/").length-1];
 
-	if(!fixName
-	|| fixName.indexOf(missionPageName)==0){
+	if(fixName.indexOf(missionPageName)==0){
 		$("#missionNavItem").addClass("active");
 	}else if(
 		fixName.indexOf(joinPageName)==0
